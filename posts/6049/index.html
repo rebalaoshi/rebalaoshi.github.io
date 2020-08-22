@@ -1,0 +1,524 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>前端面经--vue | 盯裆猫の小站</title><meta name="description" content="/*自定义样式，实时生效*/     #nice {     }      #nice p {       margin: 0 0 20px;       padding: 0;       line-height: 1.8em;       color: #3a3a3a;     }      /* 一级标题 */     #nice h1 {       font-size: 2.1"><meta name="keywords" content="前端"><meta name="author" content="DDCat"><meta name="copyright" content="DDCat"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="前端面经--vue"><meta name="twitter:description" content="/*自定义样式，实时生效*/     #nice {     }      #nice p {       margin: 0 0 20px;       padding: 0;       line-height: 1.8em;       color: #3a3a3a;     }      /* 一级标题 */     #nice h1 {       font-size: 2.1"><meta name="twitter:image" content="https://www.rebalaoshi.club/img/img14.jpg"><meta property="og:type" content="article"><meta property="og:title" content="前端面经--vue"><meta property="og:url" content="https://www.rebalaoshi.club/posts/6049/"><meta property="og:site_name" content="盯裆猫の小站"><meta property="og:description" content="/*自定义样式，实时生效*/     #nice {     }      #nice p {       margin: 0 0 20px;       padding: 0;       line-height: 1.8em;       color: #3a3a3a;     }      /* 一级标题 */     #nice h1 {       font-size: 2.1"><meta property="og:image" content="https://www.rebalaoshi.club/img/img14.jpg"><meta property="article:published_time" content="2020-08-08T05:21:11.000Z"><meta property="article:modified_time" content="2020-08-22T15:54:01.838Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://www.rebalaoshi.club/posts/6049/"><link rel="next" title="前端面经--初次面试" href="https://www.rebalaoshi.club/posts/10/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":1,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: true,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/flink.min.css"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://ae01.alicdn.com/kf/Ha5587fe05baf4d7a8562d6928addd8f54.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">14</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">6</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list" aria-hidden="true"></i><span> 娱乐</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 小破站の番</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 小豆瓣の影</span></a></li><li><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 谁の书单</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 网易云の乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/box/"><i class="fa-fw fab fa-xbox"></i><span> 聚宝盒</span></a></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 盯裆の小窝</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/home/"><i class="fa-fw fab fa-phoenix-framework"></i><span> 主页</span></a></li><li><a class="site-page" href="/gallery/"><i class="fa-fw far fa-image"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw far fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue框架的问题"><span class="toc-number">1.</span> <span class="toc-text">vue框架的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue的优势？"><span class="toc-number">1.1.</span> <span class="toc-text">vue的优势？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue生命周期简述"><span class="toc-number">1.2.</span> <span class="toc-text">vue生命周期简述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue组件中data为什么会是一个函数？"><span class="toc-number">1.3.</span> <span class="toc-text">vue组件中data为什么会是一个函数？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue中v-if-v-show的区别"><span class="toc-number">1.4.</span> <span class="toc-text">vue中v-if v-show的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#computed-和watch的区别"><span class="toc-number">1.5.</span> <span class="toc-text">computed 和watch的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#计算属性computed："><span class="toc-number">1.5.1.</span> <span class="toc-text">计算属性computed：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#侦听属性watch"><span class="toc-number">1.5.2.</span> <span class="toc-text">侦听属性watch</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-loader"><span class="toc-number">1.6.</span> <span class="toc-text">vue-loader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nextTick"><span class="toc-number">1.7.</span> <span class="toc-text">$nextTick</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-for-中key的作用"><span class="toc-number">1.8.</span> <span class="toc-text">v-for 中key的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue的双向绑定原理"><span class="toc-number">1.9.</span> <span class="toc-text">vue的双向绑定原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件传值"><span class="toc-number">1.10.</span> <span class="toc-text">组件传值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装-vue-组件的过程"><span class="toc-number">1.11.</span> <span class="toc-text">封装 vue 组件的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-js的template编译"><span class="toc-number">1.12.</span> <span class="toc-text">Vue.js的template编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scss是什么？在vue-cli中的安装使用步骤是？有哪几大特性？"><span class="toc-number">1.13.</span> <span class="toc-text">scss是什么？在vue.cli中的安装使用步骤是？有哪几大特性？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue如何监听对象或者数组某个属性的变化"><span class="toc-number">1.14.</span> <span class="toc-text">vue如何监听对象或者数组某个属性的变化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的事件修饰符"><span class="toc-number">1.15.</span> <span class="toc-text">常用的事件修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue如何获取dom"><span class="toc-number">1.16.</span> <span class="toc-text">vue如何获取dom</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on可以监听多个方法吗？"><span class="toc-number">1.17.</span> <span class="toc-text">v-on可以监听多个方法吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assets和static的区别"><span class="toc-number">1.18.</span> <span class="toc-text">assets和static的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slot插槽"><span class="toc-number">1.19.</span> <span class="toc-text">slot插槽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue初始化页面闪动问题"><span class="toc-number">1.20.</span> <span class="toc-text">vue初始化页面闪动问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue插件"><span class="toc-number">2.</span> <span class="toc-text">vue插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vuex（状态管理）"><span class="toc-number">2.1.</span> <span class="toc-text">vuex（状态管理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么使用vuex"><span class="toc-number">2.2.</span> <span class="toc-text">怎么使用vuex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步创建store"><span class="toc-number">2.3.</span> <span class="toc-text">第二步创建store</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三步注入vuex"><span class="toc-number">2.4.</span> <span class="toc-text">第三步注入vuex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuex中有几个核心属性，分别是什么？"><span class="toc-number">2.5.</span> <span class="toc-text">vuex中有几个核心属性，分别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax请求代码应该写在组件的methods中还是vuex的actions中"><span class="toc-number">2.6.</span> <span class="toc-text">ajax请求代码应该写在组件的methods中还是vuex的actions中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从vuex中获取的数据能直接更改吗？"><span class="toc-number">2.7.</span> <span class="toc-text">从vuex中获取的数据能直接更改吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuex中的数据在页面刷新后数据消失"><span class="toc-number">2.8.</span> <span class="toc-text">vuex中的数据在页面刷新后数据消失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuex的严格模式是什么-有什么作用-怎么开启？"><span class="toc-number">2.9.</span> <span class="toc-text">Vuex的严格模式是什么,有什么作用,怎么开启？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么在组件中批量使用Vuex的getter属性"><span class="toc-number">2.10.</span> <span class="toc-text">怎么在组件中批量使用Vuex的getter属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件中重复使用mutation"><span class="toc-number">2.11.</span> <span class="toc-text">组件中重复使用mutation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mutation和action有什么区别"><span class="toc-number">2.12.</span> <span class="toc-text">mutation和action有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在v-model上怎么用Vuex中state的值？"><span class="toc-number">2.13.</span> <span class="toc-text">在v-model上怎么用Vuex中state的值？</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(/img/img14.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">盯裆猫の小站</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list" aria-hidden="true"></i><span> 娱乐</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 小破站の番</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 小豆瓣の影</span></a></li><li><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 谁の书单</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 网易云の乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/box/"><i class="fa-fw fab fa-xbox"></i><span> 聚宝盒</span></a></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat" aria-hidden="true"></i><span> 盯裆の小窝</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/home/"><i class="fa-fw fab fa-phoenix-framework"></i><span> 主页</span></a></li><li><a class="site-page" href="/gallery/"><i class="fa-fw far fa-image"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw far fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">前端面经--vue</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-08 13:21:11"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-08-08</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-08-22 23:54:01"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-08-22</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E9%9D%A2%E7%BB%8F/">面经</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"><span class="post-meta__separator">|</span><i class="post-meta__icon far fa-comments" aria-hidden="true"></i><span>评论数:</span><a href="/posts/6049/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count comment-count" data-xid="/posts/6049/" itemprop="commentCount"></span></a></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><style>
+    /*自定义样式，实时生效*/
+    #nice {
+    }
+
+    #nice p {
+      margin: 0 0 20px;
+      padding: 0;
+      line-height: 1.8em;
+      color: #3a3a3a;
+    }
+
+    /* 一级标题 */
+    #nice h1 {
+      font-size: 2.1em;
+      line-height: 1.1em;
+      padding-top: 16px;
+      padding-bottom: 10px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid #c99833;
+    }
+    /* 一级标题内容 */
+    #nice h1 .content {
+      color: #515151;
+      font-weight: 700;
+    }
+
+    #nice h2, h3, h4, h5, h6 {
+    line-height: 1.5em;
+    margin-top: 2.2em;
+    margin-bottom: 4px;
+    }
+
+    /* 一级标题修饰 请参考有实例的主题 */
+    #nice h1:after {}
+
+    /* 二级标题 */
+    #nice h2 {
+    margin-bottom: 35px;
+    }
+
+    /* 二级标题内容 */
+
+    #nice h2 .content {
+      display: inline-block;
+      font-weight: bold;
+      background: linear-gradient(#fff 60%, #ffb11b 40%);
+      color: #515151;
+      padding: 2px 13px 2px;
+      margin-right: 3px;
+      height: 50%;
+    }
+
+    /* 二级标题修饰 请参考有实例的主题 */
+    #nice h2:after {}
+
+    /* 三级标题 */
+    #nice h3 {
+      line-height: 1.4;
+      padding-top: 10px;
+      margin: 10px 0 5px;
+    }
+
+    /* 三级标题内容 */
+    #nice h3 .content {
+      color: #515151;
+      font-weight: 700;
+    font-size: 1.0em;
+      padding-left: 20px;
+      border-left: 3px solid #f9bf45;
+    }
+
+    /* 三级标题修饰 请参考有实例的主题 */
+    #nice h3:after {}
+
+    /* 引用
+    * 左边缘颜色 border-left-color: black;
+    * 背景色 background: gray;
+    */
+    #nice blockquote {
+      border-left-color: #ffb11b;
+    background: #fff5e3;
+    }
+
+    /* 引用文字 */
+    #nice blockquote p {
+      color: #595959;
+    }
+
+    /* 链接 */
+    #nice a {
+      border: none;
+      text-decoration: none;
+      color: #dda52d;
+    }
+
+    #nice a:hover {
+      color: #f9bf45;
+      text-decoration: underline;
+    }
+
+    /* 无序列表整体样式
+    * list-style-type: square|circle|disc;
+    */
+    #nice ul {
+    }
+
+    /* 有序列表整体样式
+    * list-style-type: upper-roman|lower-greek|lower-alpha;
+    */
+    #nice ol {
+    }
+
+    /* 列表内容，不要设置li
+    */
+    #nice li section {
+    }
+
+    /* 加粗 */
+    #nice strong {}
+
+    /* 斜体 */
+    #nice em {}
+
+    /* 加粗斜体 */
+    #nice em strong {}
+
+    /* 删除线 */
+    #nice del {
+      color: #d19826;
+    }
+
+    /* 分隔线
+    * 粗细、样式和颜色
+    * border-top: 1px solid #3e3e3e;
+    */
+    #nice hr {
+      border-top: 1px solid #f9bf45;
+      margin: 20px 0px;
+    }
+
+    /* 图片
+    * 宽度 width: 80%;
+    * 居中 margin: 0 auto;
+    * 居左 margin: 0 0;
+    */
+    #nice img {
+      width: 100%;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 15px;
+    height: auto;
+    }
+
+    /* 图片描述文字 */
+    #nice figcaption {
+      color: #dda52d;
+      font-size: 14px;
+    }
+
+    /* 行内代码 */
+    #nice p code, #nice li code {
+      color: #9b6e23;
+      background-color: #fff5e3;
+      padding: 3px;
+      margin: 3px;
+    }
+
+    /* 非微信代码块
+    * 代码块不换行 display: -webkit-box !important;
+    * 代码块换行 display: block;
+    */
+    #nice pre code {}
+
+    /*
+    * 表格内的单元格
+    * 字体大小 font-size: 16px;
+    * 边框 border: 1px solid #ccc;
+    * 内边距 padding: 5px 10px;
+    */
+    #nice table tr th,
+    #nice table tr td {
+      text-align: center;
+    }
+
+    /* 脚注文字 */
+    #nice .footnote-word {
+      color: #ffb11b;
+      padding: 3px;
+    }
+
+    /* 脚注上标 */
+    #nice .footnote-ref {
+      color: #dda52d;
+      margin: 2px;
+      padding: 3px;
+    }
+
+    /* "参考资料"四个字 
+    * 内容 content: "参考资料";
+    */
+    #nice .footnotes-sep:before {
+      margin: 30px 0px 15px 0px;
+      font-weight: 800;
+    }
+
+
+    /* 参考资料编号 */
+    #nice .footnote-num {
+    }
+
+    /* 参考资料文字 */
+    #nice .footnote-item p { 
+    }
+
+    /* 参考资料解释 */
+    #nice .footnote-item p em {
+    }
+
+    /* 行间公式
+    * 最大宽度 max-width: 300% !important;
+    */
+    #nice .block-equation svg {
+    }
+
+    /* 行内公式
+    */
+    #nice .inline-equation svg {  
+    }
+
+    /* 滑动图片
+    */
+    #nice .imageflow-img {
+      display: inline-block;
+      width:100%;
+      margin-bottom: 0;
+    }
+</style>
+
+
+<h2 id="vue框架的问题"><a href="#vue框架的问题" class="headerlink" title="vue框架的问题"></a>vue框架的问题</h2><h3 id="vue的优势？"><a href="#vue的优势？" class="headerlink" title="vue的优势？"></a>vue的优势？</h3><p><strong>轻量级框架</strong>：只关注视图层，是一个构建数据的视图集合，大小只有几十kb</p>
+<p><strong>理解优势</strong>：国人开发，中文文档，不存在语言上的障碍，易于学习和理解</p>
+<p><strong>双向绑定数据</strong>：保留了angular的特点，在数据操作方面更为简单</p>
+<p><strong>组件化</strong>：保留了react的优点，实现了html的封装和重用，在构建单页面应用方面有着独特的优势</p>
+<p><strong>MVVM</strong>：在视图、数据、结构分离。使得数据的更改变得简单，不需要进行逻辑代码的修改，只需要操作数据就能完成相关操作。</p>
+<p><strong>虚拟DOM</strong>：dom的操作是非常消耗性能的，不再使用原生的dom操作节点，解放了dom操作，不过实质上具体操作不过是换了种方式。</p>
+<p><strong>运行速度更快</strong>：相比较于react而言，同样是操作虚拟dom，就性能而言，vue的优势更加明显</p>
+<h3 id="vue生命周期简述"><a href="#vue生命周期简述" class="headerlink" title="vue生命周期简述"></a>vue生命周期简述</h3><p>vue拥有8个生命周期。分别为创建前后、载入见后、更新前后、销毁前后。</p>
+<p><code>创建前/后：在beforeCreate阶段，vue实例的挂载元素el和数据对象data都为undefined，还未初始化。在created阶段，vue实例的数据对象data有了，el和数据对象data都为undefined，还未初始化。</code></p>
+<p><code>载入前/后：在beforeMount阶段，vue实例的$el和data都初始化了，但还是挂载之前为虚拟的dom节点，data.message还未替换。在mounted阶段，vue实例挂载完成，data.message成功渲染。</code></p>
+<p><code>更新前/后：当data变化时，会触发beforeUpdate和updated方法</code></p>
+<p><code>销毁前/后：在执行destroy方法后，对data的改变不会再触发周期函数，说明此时vue实例已经解除了事件监听以及和dom的绑定，但是dom结构依然存在</code></p>
+<h3 id="vue组件中data为什么会是一个函数？"><a href="#vue组件中data为什么会是一个函数？" class="headerlink" title="vue组件中data为什么会是一个函数？"></a>vue组件中data为什么会是一个函数？</h3><p>对象为引用类型，当服用组件时，由于数据对象都指向于同一个data对象，当在一个组件中修改data时候，其他重用的组件的data会同时被修改。</p>
+<p>而使用返回对象的函数，由于每次返回的都是一个新对象（object的实例），引用地址不同，则不会出现这个问题。</p>
+<h3 id="vue中v-if-v-show的区别"><a href="#vue中v-if-v-show的区别" class="headerlink" title="vue中v-if v-show的区别"></a>vue中v-if v-show的区别</h3><p>相同点：都能进行隐藏操作<br>不同点：v-if是对于dom操作，会对标签进行创建和销毁，所以开销较大。它属于惰性，只有条件为真的情况下才会真正渲染，如果条件为假则不会去渲染。</p>
+<p>v-show是对于css的操作，开销较小，所以适用于频繁切换的情景下。无论初始条件是否成立，都会渲染标签。</p>
+<h3 id="computed-和watch的区别"><a href="#computed-和watch的区别" class="headerlink" title="computed 和watch的区别"></a>computed 和watch的区别</h3><h4 id="计算属性computed："><a href="#计算属性computed：" class="headerlink" title="计算属性computed："></a>计算属性computed：</h4><ul>
+<li>支持缓存，只有依赖数据发生拜年话，才会重新计算</li>
+<li>不支持异步，computed内有异步操作无效，无法监听数据的变化</li>
+<li>computed属性值会默认走缓存，计算属性是基于它们的响应式依赖进行缓存的。也就是基于data中声明过或者父组件中props传递的数据通过计算得到的值。</li>
+<li>如果一个属性是由其他属性计算而来的，这个属性依赖其他属性，是一个多对一、一对一，一般用computed。</li>
+<li>如果computed属性是函数，那么会默认走get方法；函数的返回值就是属性的属性值；在computed中属性都有一个get和set方法，当数据变化的时候就调用set方法</li>
+</ul>
+<h4 id="侦听属性watch"><a href="#侦听属性watch" class="headerlink" title="侦听属性watch"></a>侦听属性watch</h4><ul>
+<li>不支持缓存，数据变化，直接会触发响应操作</li>
+<li>支持异步</li>
+<li>监听的函数接受两个参数，第一个参数是最新的值，第二个参数是输入之前的值</li>
+<li>当一个属性发生变化时，需要执行对应的操作，一对多</li>
+<li>监听数据必须是data中声明过或者父组件中传递过来的props的数据，当数据变化的时候触发其他操作，函数有两个参数。</li>
+</ul>
+<h3 id="vue-loader"><a href="#vue-loader" class="headerlink" title="vue-loader"></a>vue-loader</h3><p>它是vue的一个加载器，跟template/js/style转换成js模块</p>
+<h3 id="nextTick"><a href="#nextTick" class="headerlink" title="$nextTick"></a>$nextTick</h3><p>它能够获取到更新后的dom。</p>
+<p>vue实现响应式并不是数据发生变化后dom立即变化，而是按照一定的策略来进行dom更新。</p>
+<p>nextTick 是在下次 DOM 更新循环结束之后执行延迟回调，在修改数据之后使用nextTick，则可以在回调中获取更新后的 DOM</p>
+<h3 id="v-for-中key的作用"><a href="#v-for-中key的作用" class="headerlink" title="v-for 中key的作用"></a>v-for 中key的作用</h3><p>当Vue用 v-for 正在更新已渲染过的元素列表是，它默认用“就地复用”策略。如果数据项的顺序被改变，Vue将不是移动DOM元素来匹配数据项的改变，而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素</p>
+<p>为了给Vue一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key 属性。key属性的类型只能为 string或者number类型。</p>
+<p>key 的特殊属性主要用在Vue的虚拟DOM算法，在新旧nodes对比时辨识VNodes。如果不使用 key，Vue会使用一种最大限度减少动态元素并且尽可能的尝试修复/再利用相同类型元素的算法。使用key，它会基于key的变化重新排列元素顺序，并且会移除 key 不存在的元素。</p>
+<h3 id="vue的双向绑定原理"><a href="#vue的双向绑定原理" class="headerlink" title="vue的双向绑定原理"></a>vue的双向绑定原理</h3><p>vue.js 是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。主要分为以下几个步骤：</p>
+<p><code>1、需要observe的数据对象进行递归遍历，包括子属性对象的属性，都加上setter和getter这样的话，给这个对象的某个值赋值，就会触发setter，那么就能监听到了数据变化</code></p>
+<p><code>2、compile解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图</code></p>
+<p><code>3、Watcher订阅者是Observer和Compile之间通信的桥梁，主要做的事情是:①在自身实例化时往属性订阅器(dep)里面添加自己②自身必须有一个update()方法③待属性变动dep.notice()通知时，能调用自身的update()方法，并触发Compile中绑定的回调，则功成身退。</code></p>
+<p><code>4、MVVM作为数据绑定的入口，整合Observer、Compile和Watcher三者，通过Observer来监听自己的model数据变化，通过Compile来解析编译模板指令，最终利用Watcher搭起Observer和Compile之间的通信桥梁，达到数据变化 -&gt; 视图更新；视图交互变化(input) -&gt; 数据model变更的双向绑定效果。</code></p>
+<h3 id="组件传值"><a href="#组件传值" class="headerlink" title="组件传值"></a>组件传值</h3><p>通过props传递</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父组件： &lt;child value &#x3D; &#39;传递的数据&#39; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">子组件: props[&#39;value&#39;],接收数据,接受之后使用和data中定义数据使用方式一样</span><br></pre></td></tr></table></figure>
+<p>子传父</p>
+<p>在父组件中给子组件绑定一个自定义的事件，子组件通过$emit()触发该事件并传值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父组件： &lt;child @receive &#x3D; &#39;receive&#39; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">子组件: this.$emit(&#39;receive&#39;,&#39;传递的数据&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>兄弟组件传值</p>
+<p>通过中央通信 let bus = new Vue()<br><code>A：methods :{ 函数{bus.$emit(‘自定义事件名’，数据)} 发送</code></p>
+<p><code>B：created （）{bus.$on(‘A发送过来的自定义事件名’，函数)} 进行数据接收</code></p>
+<h3 id="封装-vue-组件的过程"><a href="#封装-vue-组件的过程" class="headerlink" title="封装 vue 组件的过程"></a>封装 vue 组件的过程</h3><p>首先，组件可以提升整个项目的开发效率。能够把页面抽象成多个相对独立的模块，解决了我们传统项目开发：效率低、难维护、复用性等问题。</p>
+<p>然后，使用Vue.extend方法创建一个组件，然后使用Vue.component方法注册组件。子组件需要数据，可以在props中接受定义。而子组件修改好数据后，想把数据传递给父组件。可以采用emit方法。</p>
+<h3 id="Vue-js的template编译"><a href="#Vue-js的template编译" class="headerlink" title="Vue.js的template编译"></a>Vue.js的template编译</h3><p>简而言之，就是先转化成AST树，再得到的render函数返回VNode（Vue的虚拟DOM节点），详细步骤如下：</p>
+<p><code>首先，通过compile编译器把template编译成AST语法树（abstract syntax tree 即 源代码的抽象语法结构的树状表现形式），compile是createCompiler的返回值，createCompiler是用以创建编译器的。另外compile还负责合并option。</code></p>
+<p><code>然后，AST会经过generate（将AST语法树转化成render funtion字符串的过程）得到render函数，render的返回值是VNode，VNode是Vue的虚拟DOM节点，里面有（标签名、子节点、文本等等）</code></p>
+<h3 id="scss是什么？在vue-cli中的安装使用步骤是？有哪几大特性？"><a href="#scss是什么？在vue-cli中的安装使用步骤是？有哪几大特性？" class="headerlink" title="scss是什么？在vue.cli中的安装使用步骤是？有哪几大特性？"></a>scss是什么？在vue.cli中的安装使用步骤是？有哪几大特性？</h3><p>css的预编译,使用步骤如下：</p>
+<p>第一步：用npm 下三个loader（sass-loader、css-loader、node-sass）</p>
+<p>第二步：在build目录找到webpack.base.config.js，在那个extends属性中加一个拓展.scss</p>
+<p>第三步：还是在同一个文件，配置一个module属性</p>
+<p>第四步：然后在组件的style标签加上lang属性 ，例如：lang=”scss”</p>
+<p>特性主要有:</p>
+<p>可以用变量，例如（$变量名称=值）<br>可以用混合器，例如（）<br>可以嵌套</p>
+<h3 id="vue如何监听对象或者数组某个属性的变化"><a href="#vue如何监听对象或者数组某个属性的变化" class="headerlink" title="vue如何监听对象或者数组某个属性的变化"></a>vue如何监听对象或者数组某个属性的变化</h3><p>当在项目中直接设置数组的某一项的值，或者直接设置对象的某个属性值，这个时候，你会发现页面并没有更新。这是因为Object.defineprototype()限制，监听不到变化。</p>
+<p>解决方式：</p>
+<p>this.$set(你要改变的数组/对象，你要改变的位置/key，你要改成什么value)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">this.$set(this.arr, 0, &quot;OBKoro1&quot;); &#x2F;&#x2F; 改变数组</span><br><span class="line">this.$set(this.obj, &quot;c&quot;, &quot;OBKoro1&quot;); &#x2F;&#x2F; 改变对象</span><br></pre></td></tr></table></figure>
+
+<p>数组原生方法触发视图更新,vue可以监听到数组原生方法导致的数据数据变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">splice()、 push()、pop()、shift()、unshift()、sort()、reverse()</span><br></pre></td></tr></table></figure>
+
+<p>意思是使用这些方法不用我们再进行额外的操作，视图自动进行更新。推荐使用splice方法会比较好自定义,因为splice可以在数组的任何位置进行删除/添加操作</p>
+<h3 id="常用的事件修饰符"><a href="#常用的事件修饰符" class="headerlink" title="常用的事件修饰符"></a>常用的事件修饰符</h3><ul>
+<li>.stop:阻止冒泡</li>
+<li>.prevent:阻止默认行为</li>
+<li>.self:仅绑定元素自身触发</li>
+<li>.once: 2.1.4 新增,只触发一次</li>
+<li>passive: 2.3.0 新增,滚动事件的默认行为 (即滚动行为) 将会立即触发,不能和.prevent 一起使用</li>
+<li>.sync 修饰符</li>
+</ul>
+<p>从 2.3.0 起vue重新引入了.sync修饰符，但是这次它只是作为一个编译时的语法糖存在。它会被扩展为一个自动更新父组件属性的 v-on 监听器。示例代码如下：</p>
+<p><code>&lt;comp :foo.sync=&quot;bar&quot;&gt;&lt;/comp&gt;</code><br>会被扩展为：</p>
+<p><code>&lt;comp :foo=&quot;bar&quot; @update:foo=&quot;val =&gt; bar = val&quot;&gt;&lt;/comp&gt;</code><br>当子组件需要更新 foo 的值时，它需要显式地触发一个更新事件：</p>
+<p><code>this.$emit(&#39;update:foo&#39;, newValue)</code></p>
+<h3 id="vue如何获取dom"><a href="#vue如何获取dom" class="headerlink" title="vue如何获取dom"></a>vue如何获取dom</h3><p>先给标签设置一个ref值，再通过this.$refs.domName获取，例如：</p>
+<p>`<div ref="test"></div></p>
+<p>const dom = this.$refs.test`</p>
+<h3 id="v-on可以监听多个方法吗？"><a href="#v-on可以监听多个方法吗？" class="headerlink" title="v-on可以监听多个方法吗？"></a>v-on可以监听多个方法吗？</h3><p>是可以的，来个例子：</p>
+<p><code>&lt;input type=&quot;text&quot; v-on=&quot;{ input:onInput,focus:onFocus,blur:onBlur, }&quot;&gt;</code></p>
+<h3 id="assets和static的区别"><a href="#assets和static的区别" class="headerlink" title="assets和static的区别"></a>assets和static的区别</h3><p>这两个都是用来存放项目中所使用的静态资源文件。</p>
+<p>两者的区别：</p>
+<p>assets中的文件在运行npm run build的时候会打包，简单来说就是会被压缩体积，代码格式化之类的。打包之后也会放到static中。</p>
+<p>static中的文件则不会被打包。</p>
+<h3 id="slot插槽"><a href="#slot插槽" class="headerlink" title="slot插槽"></a>slot插槽</h3><p>很多时候，我们封装了一个子组件之后，在父组件使用的时候，想添加一些dom元素，这个时候就可以使用slot插槽了，但是这些dom是否显示以及在哪里显示，则是看子组件中slot组件的位置了。</p>
+<h3 id="vue初始化页面闪动问题"><a href="#vue初始化页面闪动问题" class="headerlink" title="vue初始化页面闪动问题"></a>vue初始化页面闪动问题</h3><p>使用vue开发时，在vue初始化之前，由于div是不归vue管的，所以我们写的代码在还没有解析的情况下会容易出现花屏现象，看到类似于的字样，虽然一般情况下这个时间很短暂，但是我们还是有必要让解决这个问题的。</p>
+<p>首先：在css里加上以下代码</p>
+<p><code>[v-cloak] {
+    display: none;
+}</code><br>如果没有彻底解决问题，则在根元素加上style=”display: none;” :style=”{display: ‘block’}”</p>
+<h2 id="vue插件"><a href="#vue插件" class="headerlink" title="vue插件"></a>vue插件</h2><h3 id="vuex（状态管理）"><a href="#vuex（状态管理）" class="headerlink" title="vuex（状态管理）"></a>vuex（状态管理）</h3><p>Vuex 是一个专为 Vue.js应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能</p>
+<h3 id="怎么使用vuex"><a href="#怎么使用vuex" class="headerlink" title="怎么使用vuex"></a>怎么使用vuex</h3><p>第一步安装</p>
+<p><code>npm install vuex -S</code></p>
+<h3 id="第二步创建store"><a href="#第二步创建store" class="headerlink" title="第二步创建store"></a>第二步创建store</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;;</span><br><span class="line">import Vuex from &#39;vuex&#39;;</span><br><span class="line">Vue.use(Vuex);</span><br><span class="line">&#x2F;&#x2F;不是在生产环境debug为true</span><br><span class="line">const debug &#x3D; process.env.NODE_ENV !&#x3D;&#x3D; &#39;production&#39;;</span><br><span class="line">&#x2F;&#x2F;创建Vuex实例对象</span><br><span class="line">const store &#x3D; new Vuex.Store(&#123;</span><br><span class="line">    strict:debug,&#x2F;&#x2F;在不是生产环境下都开启严格模式</span><br><span class="line">    state:&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    getters:&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    mutations:&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    actions:&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">export default store;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="第三步注入vuex"><a href="#第三步注入vuex" class="headerlink" title="第三步注入vuex"></a>第三步注入vuex</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mport Vue from &#39;vue&#39;;</span><br><span class="line">import App from &#39;.&#x2F;App.vue&#39;;</span><br><span class="line">import store from &#39;.&#x2F;store&#39;;</span><br><span class="line">const vm &#x3D; new Vue(&#123;</span><br><span class="line">    store:store,</span><br><span class="line">    render: h &#x3D;&gt; h(App)</span><br><span class="line">&#125;).$mount(&#39;#app&#39;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="vuex中有几个核心属性，分别是什么？"><a href="#vuex中有几个核心属性，分别是什么？" class="headerlink" title="vuex中有几个核心属性，分别是什么？"></a>vuex中有几个核心属性，分别是什么？</h3><p>一共有5个核心属性，分别是:</p>
+<ul>
+<li>state 唯一数据源,Vue 实例中的 data 遵循相同的规则</li>
+<li>getters 可以认为是 store 的计算属性,就像计算属性一样，getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。Getter 会暴露为 store.getters 对象，你可以以属性的形式访问这些值.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const store &#x3D; new Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    todos: [</span><br><span class="line">      &#123; id: 1, text: &#39;...&#39;, done: true &#125;,</span><br><span class="line">      &#123; id: 2, text: &#39;...&#39;, done: false &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">    doneTodos: state &#x3D;&gt; &#123;</span><br><span class="line">      return state.todos.filter(todo &#x3D;&gt; todo.done)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">store.getters.doneTodos &#x2F;&#x2F; -&gt; [&#123; id: 1, text: &#39;...&#39;, done: true &#125;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>mutation 更改 Vuex 的 store 中的状态的唯一方法是提交 mutation,非常类似于事件,通过store.commit 方法触发</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const store &#x3D; new Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: 1</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    increment (state) &#123;</span><br><span class="line">      &#x2F;&#x2F; 变更状态</span><br><span class="line">      state.count++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">store.commit(&#39;increment&#39;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>action Action 类似于 mutation，不同在于Action 提交的是 mutation，而不是直接变更状态，Action 可以包含任意异步操作</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const store &#x3D; new Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    count: 0</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    increment (state) &#123;</span><br><span class="line">      state.count++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    increment (context) &#123;</span><br><span class="line">      context.commit(&#39;increment&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>module  由于使用单一状态树，应用的所有状态会集中到一个比较大的对象。当应用变得非常复杂时，store 对象就有可能变得相当臃肿。为了解决以上问题，Vuex 允许我们将 store 分割成模块（module）。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const moduleA &#x3D; &#123;</span><br><span class="line">  state: () &#x3D;&gt; (&#123; ... &#125;),</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;,</span><br><span class="line">  getters: &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const moduleB &#x3D; &#123;</span><br><span class="line">  state: () &#x3D;&gt; (&#123; ... &#125;),</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const store &#x3D; new Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    a: moduleA,</span><br><span class="line">    b: moduleB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">store.state.a &#x2F;&#x2F; -&gt; moduleA 的状态</span><br><span class="line">store.state.b &#x2F;&#x2F; -&gt; moduleB 的状态</span><br></pre></td></tr></table></figure>
+
+<h3 id="ajax请求代码应该写在组件的methods中还是vuex的actions中"><a href="#ajax请求代码应该写在组件的methods中还是vuex的actions中" class="headerlink" title="ajax请求代码应该写在组件的methods中还是vuex的actions中"></a>ajax请求代码应该写在组件的methods中还是vuex的actions中</h3><p>如果请求来的数据是不是要被其他组件公用，仅仅在请求的组件内使用，就不需要放入vuex 的state里。</p>
+<p>如果被其他地方复用，这个很大几率上是需要的，如果需要，请将请求放入action里，方便复用。</p>
+<h3 id="从vuex中获取的数据能直接更改吗？"><a href="#从vuex中获取的数据能直接更改吗？" class="headerlink" title="从vuex中获取的数据能直接更改吗？"></a>从vuex中获取的数据能直接更改吗？</h3><p>从vuex中取的数据，不能直接更改，需要浅拷贝对象之后更改，否则报错；</p>
+<h3 id="vuex中的数据在页面刷新后数据消失"><a href="#vuex中的数据在页面刷新后数据消失" class="headerlink" title="vuex中的数据在页面刷新后数据消失"></a>vuex中的数据在页面刷新后数据消失</h3><p>用sessionstorage 或者 localstorage 存储数据</p>
+<p><code>存储：sessionStorage.setItem( &#39;名&#39;, JSON.stringify(值) )
+使用：sessionStorage.getItem(&#39;名&#39;) ---得到的值为字符串类型，用JSON.parse()去引号；</code><br>也可以引入插件vuex-persist，使用方法如下：</p>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save vuex-persist</span><br><span class="line">or</span><br><span class="line">yarn add vuex-persist</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>引入</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import VuexPersistence from &#39;vuex-persist&#39;</span><br><span class="line">先创建一个对象并进行配置</span><br><span class="line">const vuexLocal &#x3D; new VuexPersistence(&#123;</span><br><span class="line">    storage: window.localStorage</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>引入进vuex插件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const store &#x3D; new Vuex.Store(&#123;</span><br><span class="line">  state: &#123; ... &#125;,</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;,</span><br><span class="line">  plugins: [vuexLocal.plugin]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>通过以上设置，在图3中各个页面之间跳转，如果刷新某个视图，数据并不会丢失，依然存在，并且不需要在每个 mutations 中手动存取 storage 。</p>
+<h3 id="Vuex的严格模式是什么-有什么作用-怎么开启？"><a href="#Vuex的严格模式是什么-有什么作用-怎么开启？" class="headerlink" title="Vuex的严格模式是什么,有什么作用,怎么开启？"></a>Vuex的严格模式是什么,有什么作用,怎么开启？</h3><p>在严格模式下，无论何时发生了状态变更且不是由mutation函数引起的，将会抛出错误。这能保证所有的状态变更都能被调试工具跟踪到。</p>
+<p>在Vuex.Store 构造器选项中开启,如下</p>
+<p><code>const store = new Vuex.Store({
+    strict:true,
+})</code></p>
+<h3 id="怎么在组件中批量使用Vuex的getter属性"><a href="#怎么在组件中批量使用Vuex的getter属性" class="headerlink" title="怎么在组件中批量使用Vuex的getter属性"></a>怎么在组件中批量使用Vuex的getter属性</h3><p>使用mapGetters辅助函数, 利用对象展开运算符将getter混入computed 对象中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123;mapGetters&#125; from &#39;vuex&#39;</span><br><span class="line">export default&#123;</span><br><span class="line">    computed:&#123;</span><br><span class="line">        ...mapGetters([&#39;total&#39;,&#39;discountTotal&#39;])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="组件中重复使用mutation"><a href="#组件中重复使用mutation" class="headerlink" title="组件中重复使用mutation"></a>组件中重复使用mutation</h3><p>使用mapMutations辅助函数,在组件中这么使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; mapMutations &#125; from &#39;vuex&#39;</span><br><span class="line">methods:&#123;</span><br><span class="line">    ...mapMutations(&#123;</span><br><span class="line">        setNumber:&#39;SET_NUMBER&#39;,</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后调用this.setNumber(10)相当调用this.$store.commit(‘SET_NUMBER’,10)</p>
+<h3 id="mutation和action有什么区别"><a href="#mutation和action有什么区别" class="headerlink" title="mutation和action有什么区别"></a>mutation和action有什么区别</h3><ul>
+<li>action 提交的是 mutation，而不是直接变更状态。mutation可以直接变更状态</li>
+<li>action 可以包含任意异步操作。mutation只能是同步操作</li>
+<li>提交方式不同<br><code>action 是用this.store.dispatch(&#39;ACTION_NAME&#39;,data)来提交。
+mutation是用this.$store.commit(&#39;SET_NUMBER&#39;,10)来提交</code></li>
+<li>接收参数不同，mutation第一个参数是state，而action第一个参数是context，其包含了</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    state,      &#x2F;&#x2F; 等同于 &#96;store.state&#96;，若在模块中则为局部状态</span><br><span class="line">    rootState,  &#x2F;&#x2F; 等同于 &#96;store.state&#96;，只存在于模块中</span><br><span class="line">    commit,     &#x2F;&#x2F; 等同于 &#96;store.commit&#96;</span><br><span class="line">    dispatch,   &#x2F;&#x2F; 等同于 &#96;store.dispatch&#96;</span><br><span class="line">    getters,    &#x2F;&#x2F; 等同于 &#96;store.getters&#96;</span><br><span class="line">    rootGetters &#x2F;&#x2F; 等同于 &#96;store.getters&#96;，只存在于模块中</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="在v-model上怎么用Vuex中state的值？"><a href="#在v-model上怎么用Vuex中state的值？" class="headerlink" title="在v-model上怎么用Vuex中state的值？"></a>在v-model上怎么用Vuex中state的值？</h3><p>需要通过computed计算属性来转换。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-model&#x3D;&quot;message&quot;&gt;</span><br><span class="line">&#x2F;&#x2F; ...</span><br><span class="line">computed: &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">        get () &#123;</span><br><span class="line">            return this.$store.state.message</span><br><span class="line">        &#125;,</span><br><span class="line">        set (value) &#123;</span><br><span class="line">            this.$store.commit(&#39;updateMessage&#39;, value)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">DDCat</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.rebalaoshi.club/posts/6049/">https://www.rebalaoshi.club/posts/6049/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.rebalaoshi.club" target="_blank">盯裆猫の小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%80%BB%E7%BB%93/">总结</a><a class="post-meta__tags" href="/tags/%E9%9D%A2%E7%BB%8F/">面经</a></div><div class="post_share"><div class="social-share" data-image="/img/img10.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechatpay.png" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.png" alt="支付寶"/><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/posts/10/"><img class="next_cover lazyload" data-src="/img/img10.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">前端面经--初次面试</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/posts/8/" title="前端面经"><img class="relatedPosts_cover lazyload"data-src="/img/img7.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-07-08</div><div class="relatedPosts_title">前端面经</div></div></a></div><div class="relatedPosts_item"><a href="/posts/10/" title="前端面经--初次面试"><img class="relatedPosts_cover lazyload"data-src="/img/img10.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-08-01</div><div class="relatedPosts_title">前端面经--初次面试</div></div></a></div><div class="relatedPosts_item"><a href="/posts/13/" title="前端知识之CSS篇"><img class="relatedPosts_cover lazyload"data-src="/img/img13.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-07-24</div><div class="relatedPosts_title">前端知识之CSS篇</div></div></a></div><div class="relatedPosts_item"><a href="/posts/12/" title="前端知识之Vue篇"><img class="relatedPosts_cover lazyload"data-src="/img/img12.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-07-20</div><div class="relatedPosts_title">前端知识之Vue篇</div></div></a></div><div class="relatedPosts_item"><a href="/posts/11/" title="前端知识之HTML篇"><img class="relatedPosts_cover lazyload"data-src="/img/img11.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-07-15</div><div class="relatedPosts_title">前端知识之HTML篇</div></div></a></div><div class="relatedPosts_item"><a href="/posts/7/" title="promise部分摘要"><img class="relatedPosts_cover lazyload"data-src="/img/img8.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-07-04</div><div class="relatedPosts_title">promise部分摘要</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  appId: 'hcDp8V6Nr1tx9PCqQlIz0uAF-gzGzoHsz',
+  appKey: 'NWgeexhAOlLWJEHRAD9P43pg',
+  notify: false,
+  verify: false,
+  placeholder: '请在这里写下你的骚话……',
+  avatar: 'monsterid',
+  meta: guest_info,
+  pageSize: '10',
+  lang: 'en',
+  recordIP: false,
+  serverURLs: '',
+  emojiCDN: '',
+  emojiMaps: ""
+});</script></div></article></main><footer id="footer" style="background-image: url(/img/img14.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020  <i id="heartbeat" class="fa fas fa-heartbeat"></i> DDCat</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><meta name="generator" content="Hexo 4.2.1"></head></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">简</a><i class="darkmode far fa-moon" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script defer id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/calendar.js"></script><script src="/js/languages.js"></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
